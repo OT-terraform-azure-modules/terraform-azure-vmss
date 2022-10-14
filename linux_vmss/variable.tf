@@ -1,186 +1,222 @@
 variable "resource_group_name" {
-  description = "Name of Resource Group"
+  description = "value"
   type        = string
+  default     = "rg-himanshu"
 }
 
 variable "location" {
-  description = "The location of resource group"
+  description = "value"
   type        = string
+  default     = "Australia East"
 }
 
 variable "vnet_name" {
-  description = "The name of vnet"
+  description = "value"
   type        = string
+  default     = "example-network"
 }
 
 variable "vnet_address_space" {
-  description = "The CIDR range for vnet"
+  description = "value"
   type        = list(string)
+  default     = ["10.0.0.0/16"]
 }
 
 variable "subnet_name" {
-  description = "The name for subnet"
+  description = "value"
   type        = string
+  default     = "subnet-01"
 }
 
 variable "subnet_address_prefixes" {
-  description = "The CIDR range for subnet io address"
+  description = "value"
   type        = list(string)
+  default     = ["10.0.2.0/24"]
 }
 
 variable "vmss_name" {
-  description = "The name for vmss"
+  description = "value"
   type        = string
+  default     = "example-vmss"
 }
 
 variable "vmss_sku" {
-  description = "The sku for vmss"
+  description = "value"
   type        = string
+  default     = "Standard_D2s_v3"
 }
 
 variable "vmss_instances" {
-  description = "The number of instances for vmss"
+  description = "value"
   type        = number
+  default     = 1
 }
 
 variable "vmss_admin_password" {
-  description = "The password for vmss"
+  description = "value"
   type        = string
+  default     = "P@55w0rd1234!"
 }
 
 variable "vmss_admin_username" {
-  description = "The username for vmss"
+  description = "value"
   type        = string
+  default     = "opstree"
 }
 
 variable "vmss_computer_name_prefix" {
   description = "value"
   type        = string
+  default     = "testWin"
 }
 
 variable "vmss_custom_data" {
   description = "value"
   type        = string
+  default     = null
 }
 
 variable "vmss_do_not_run_extensions_on_overprovisioned_machines" {
-  description = "(Optional) Should Virtual Machine Extensions be run on Overprovisioned Virtual Machines in the Scale Set? Defaults to false"
+  description = "value"
   type        = string
+  default     = null
 }
 
 variable "vmss_edge_zone" {
-  description = " Specifies the Edge Zone within the Azure Region where this Linux Virtual Machine Scale Set should exist. Changing this forces a new Linux Virtual Machine Scale Set to be created"
+  description = "value"
   type        = string
+  default     = null
 }
 
 variable "vmss_enable_automatic_updates" {
-  description = "Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?"
+  description = "value"
   type        = string
+  default     = null
 }
 
 variable "vmss_encryption_at_host_enabled" {
   description = "value"
   type        = string
+  default     = null
 }
 
 variable "vmss_extensions_time_budget" {
-  description = "Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to 90 minutes (PT1H30M)"
+  description = "value"
   type        = string
+  default     = null
 }
 
 variable "vmss_eviction_policy" {
-  description = "The Policy which should be used Virtual Machines are Evicted from the Scale Set. Changing this forces a new resource to be created"
+  description = "value"
   type        = string
+  default     = null
 }
 
 variable "vmss_health_probe_id" {
-  description = "The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when upgrade_mode is set to Automatic or Rolling"
+  description = "value"
   type        = string
+  default     = null
 }
 
 variable "vmss_max_bid_price" {
-  description = "The maximum price you're willing to pay for each Virtual Machine in this Scale Set, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machines in the Scale Set will be evicted using the eviction_policy. Defaults to -1, which means that each Virtual Machine in this Scale Set should not be evicted for price reasons"
+  description = "value"
   type        = string
+  default     = null
 }
 
 variable "vmss_overprovision" {
-  description = "Should Azure over-provision Virtual Machines in this Scale Set? This means that multiple Virtual Machines will be provisioned and Azure will keep the instances which become available first - which improves provisioning success rates and improves deployment time. You're not billed for these over-provisioned VM's and they don't count towards the Subscription Quota. Defaults to true | boo"
+  description = "value"
   type        = string
+  default     = null
 }
 
 variable "vmss_platform_fault_domain_count" {
-  description = "The count of fault tolerant domain for vmss"
+  description = "value"
   type        = string
+  default     = null
 }
 
 variable "vmss_priority" {
-  description = "Optional) The Priority of this Virtual Machine Scale Set. Possible values are Regular and Spot. Defaults to Regular. Changing this value forces a new resource"
+  description = "value"
   type        = string
+  default     = null
 }
 
 variable "vmss_provision_vm_agent" {
-  description = "Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to true. Changing this value forces a new resource to be created"
+  description = "value"
   type        = string
+  default     = null
 }
 
 variable "vmss_proximity_placement_group_id" {
-  description = "The ID of the Proximity Placement Group in which the Virtual Machine Scale Set should be assigned to. Changing this forces a new resource to be created"
+  description = "value"
   type        = string
+  default     = null
 }
 
 variable "vmss_scale_in_policy" {
-  description = "The scale-in policy rule that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled in. Possible values for the scale-in policy rules are Default, NewestVM and OldestVM, defaults to Default"
+  description = "value"
   type        = string
+  default     = null
 }
 
 variable "vmss_secure_boot_enabled" {
-  description = "Specifies whether secure boot should be enabled on the virtual machine. Changing this forces a new resource to be created"
+  description = "value"
   type        = string
+  default     = null
 }
 
 variable "vmss_single_placement_group" {
-  description = "Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines"
+  description = "value"
   type        = string
+  default     = null
 }
 
 variable "vmss_source_image_id" {
-  description = "The ID of an Image which each Virtual Machine in this Scale Set should be based on"
+  description = "value"
   type        = string
+  default     = null
 }
 
 variable "vmss_timezone" {
-  description = "The timezome for vmss"
+  description = "value"
   type        = string
+  default     = null
 }
 
 variable "vmss_upgrade_mode" {
-  description = "Specifies the mode of an upgrade to virtual machines in the scale set. Possible values, Rolling, Manual, or Automatic. When choosing Rolling, you will need to set a health probe"
+  description = "value"
   type        = string
+  default     = null
 }
 
 variable "vmss_vtpm_enabled" {
-  description = "Specifies whether vTPM should be enabled on the virtual machine. Changing this forces a new resource to be created"
+  description = "value"
   type        = string
+  default     = null
 }
 
 variable "vmss_zone_balance" {
-  description = "Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to false. Changing this forces a new resource to be created"
+  description = "value"
   type        = string
+  default     = null
 }
 
 variable "vmss_zones" {
-  description = "Specifies a list of Availability Zones in which this Linux Virtual Machine Scale Set should be located. Changing this forces a new Linux Virtual Machine Scale Set to be created"
+  description = "value"
   type        = set(string)
+  default     = null
 }
 
 variable "vmss_disable_password_authentication" {
-  description = "Specifies whether password authentication should be disabled. Defaults to false. Changing this forces a new resource to be created"
+  description = "value"
   type        = bool
+  default     = false
 }
 
 variable "additional_capabilities" {
   type        = list(any)
-  description = "A additional_capabilities"
+  description = "value"
 }
 
 variable "additional_unattend_content" {
@@ -190,37 +226,37 @@ variable "additional_unattend_content" {
 
 variable "automatic_instance_repair" {
   type        = list(any)
-  description = "To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid health_probe_id or an Application Health Extension"
+  description = "value"
 }
 
 variable "automatic_os_upgrade_policy" {
   type        = list(any)
-  description = " A automatic_os_upgrade_policy block as defined below. This can only be specified when upgrade_mode is set to Automatic"
+  description = ""
 }
 
 variable "boot_diagnostics" {
   type        = list(any)
-  description = "A boot_diagnostics"
+  description = ""
 }
 
 variable "extension" {
   type        = list(any)
-  description = "(Required) The name for the Virtual Machine Scale Set Extension"
+  description = ""
 }
 
 variable "identity" {
   type        = list(any)
-  description = "Specifies a list of user managed identity ids to be assigned to the VMSS. Required if type is UserAssigned"
+  description = ""
 }
 
 variable "plan" {
   type        = list(any)
-  description = " Specifies the name of the image from the marketplace"
+  description = ""
 }
 
 variable "data_disk" {
   type        = list(any)
-  description = "A storage profile data disk"
+  description = ""
 }
 
 variable "rolling_upgrade_policy" {
@@ -230,27 +266,27 @@ variable "rolling_upgrade_policy" {
 
 variable "secret" {
   type        = list(any)
-  description = "Specifies a list of user managed identity ids to be assigned to the VMSS"
+  description = ""
 }
 
 variable "certificate" {
   type        = list(any)
-  description = "(Required, on windows machines) A collection of Vault Certificates"
+  description = ""
 }
 
 variable "termination_notification" {
   type        = list(any)
-  description = "A termination_notification "
+  description = ""
 }
 
 variable "vmss_tags" {
   type        = map(string)
-  description = "The tags used for resources"
+  description = ""
 }
 
 variable "winrm_listener" {
   type        = list(any)
-  description = "A collection of WinRM configuration"
+  description = ""
 }
 
 variable "diff_disk_settings" {
@@ -260,11 +296,11 @@ variable "diff_disk_settings" {
 
 variable "ip_tag" {
   type        = list(any)
-  description = "Tag of ip"
+  description = ""
 }
 
 
-#For Windows
+## For Windows
 variable "source_image_reference" {
   type = any
   default = {
@@ -278,182 +314,185 @@ variable "source_image_reference" {
 variable "os_disk" {
   type        = any
   description = ""
-  default = {
-    storage_account_type      = "Standard_LRS"
-    caching                   = "ReadWrite"
-    disk_encryption_set_id    = null
-    disk_size_gb              = null
-    write_accelerator_enabled = null
-  }
 }
-
 
 variable "network_interface" {
   type        = any
-  description = "The name of network interface for vmss"
+  description = ""
 }
 
 variable "ip_configuration" {
   type        = list(any)
-  description = "The ip configuration name for network interface "
+  description = ""
 }
 
-
 variable "vmss_source_image_reference_publisher" {
-  description = "The publisher for vmss source image"
+  description = "value"
   type        = string
+  default     = "Canonical" #"MicrosoftWindowsServer"
   # "Canonical" for Linux
 }
 
 variable "vmss_source_image_reference_offer" {
-  description = "Specifies the offer of the image used to create the virtual machine. Changing this forces a new resource to be created. sku"
+  description = "value"
   type        = string
+  default     = "UbuntuServer" #"WindowsServer"
   # "UbuntuServer" for Linux
 }
 
 variable "vmss_source_image_reference_sku" {
-  description = "The sku for vmss source image reference"
+  description = "value"
   type        = string
+  default     = "16.04-LTS" #"2016-Datacenter-Server-Core"
   # "16.04-LTS" for Linux
 }
 
 variable "vmss_source_image_reference_version" {
-  description = "The version for vmms source image reference"
+  description = "value"
   type        = string
+  default     = "latest"
 }
 
 variable "vmss_os_disk_storage_account_type" {
-  description = "The type of disk storage account"
+  description = "value"
   type        = string
+  default     = "Standard_LRS"
 }
 
 variable "vmss_os_disk_caching" {
-  description = "The type of os disk caching"
+  description = "value"
   type        = string
+  default     = "ReadWrite"
 }
 
 variable "vmss_os_disk_disk_encryption_set_id" {
-  description = "The id of os disk encryption"
+  description = "value"
   type        = string
+  default     = null
 }
 
 variable "vmss_os_disk_disk_size_gb" {
-  description = "The disk size for vmss os in gb"
+  description = "value"
   type        = string
+  default     = null
 }
 
 variable "vmss_os_disk_write_accelerator_enabled" {
-  description = "Specifies if Write Accelerator is enabled on the disk. This can only be enabled on Premium_LRS managed disks with no caching and M-Series VMs. Defaults to false"
+  description = "value"
   type        = string
+  default     = null
 }
 
 variable "vmss_os_disk_diff_disk_settings_option" {
   description = "value"
   type        = string
+  default     = null
 }
 
 variable "vmss_network_interface_name" {
-  description = "The name of network interface for vmss"
+  description = "value"
   type        = string
+  default     = "example"
 }
 
 variable "vmss_network_interface_primary" {
-  description = "The primary network interface for vmss"
+  description = "value"
   type        = bool
+  default     = true
 }
 
 variable "vmss_network_interface_dns_servers" {
-  description = " A list of IP Addresses defining the DNS Servers which should be used for this Network Interfac"
+  description = "value"
   type        = list(string)
+  default     = null
 }
 
 variable "vmss_network_interface_enable_accelerated_networking" {
-  description = " Should Accelerated Networking be enabled? Defaults to false"
+  description = "value"
   type        = string
+  default     = null
 }
 
 variable "vmss_network_interface_enable_ip_forwarding" {
-  description = "Should IP Forwarding be enabled? Defaults to false"
+  description = "value"
   type        = string
+  default     = null
 }
 
 variable "vmss_network_interface_network_security_group_id" {
-  description = "The security group id for vmss network interface"
+  description = "value"
   type        = string
+  default     = null
 }
 
 variable "vmss_network_interface_ip_configuration_name" {
-  description = "The ip configuration name for network interface"
+  description = "value"
   type        = string
+  default     = "internal"
 }
 
 variable "vmss_network_interface_ip_configuration_primary" {
-  description = "The configuration of vmss network interface"
+  description = "value"
   type        = bool
+  default     = true
 }
 
 variable "vmss_network_interface_ip_configuration_application_gateway_backend_address_pool_ids" {
   description = "value"
   type        = set(string)
+  default     = null
 }
 
 variable "vmss_network_interface_ip_configuration_application_security_group_ids" {
-  description = "The ID of vmss network interface ip configuration application gateway backend group"
+  description = "value"
   type        = set(string)
+  default     = null
 }
 
 variable "vmss_network_interface_ip_configuration_load_balancer_backend_address_pool_ids" {
   description = "value"
   type        = set(string)
+  default     = null
 }
 
 variable "vmss_network_interface_ip_configuration_load_balancer_inbound_nat_rules_ids" {
-  description = "The ID of load balancer inbound nat rules"
+  description = "value"
   type        = set(string)
+  default     = null
 }
 
 variable "vmss_network_interface_ip_configuration_version" {
-  description = " The version of vmss network interface ip configuratio"
+  description = "value"
   type        = string
+  default     = null
 }
 
 variable "vmss_network_interface_ip_configuration_public_ip_address_domain_name_label" {
-  description = "The label of vmss network interface ip configuration public ip address domain name "
+  description = "value"
   type        = string
+  default     = null
 }
 
 variable "vmss_network_interface_ip_configuration_public_ip_address_idle_timeout_in_minutes" {
   description = "value"
   type        = string
+  default     = null
 }
 
 variable "vmss_network_interface_ip_configuration_public_ip_address_public_ip_prefix_id" {
-  description = "The ID of vmss network interface ip configuration public ip address"
+  description = "value"
   type        = string
+  default     = null
 }
 
 variable "vmss_network_interface_ip_configuration_public_ip_address_name" {
-  description = "The name of vmss network interface ip configuration public ip address"
+  description = "value"
   type        = string
+  default     = "ppipp"
 }
 
-variable "public_key" {
-  description = "The public key"
-  type        = any
-}
 
 variable "os_flavor" {
-  description = "The flavour of OS for vmss"
+  description = "value"
   type        = string
-}
-
-variable "linux_image_reference" {
-  description = "List of ARM role receivers"
-  type = list(object({
-    publisher = string,
-    offer     = string,
-    sku       = string,
-    version   = string
-  }))
-  default = []
 }
