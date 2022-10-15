@@ -12,11 +12,11 @@ vmss_admin_username     = "Opstree"
 
 ### For Linux
 source_image_reference = {
-      publisher = "Canonical"
-      offer     = "UbuntuServer"
-      sku       = "16.04-LTS"
-      version   = "Latest"
-    }
+  publisher = "Canonical"
+  offer     = "UbuntuServer"
+  sku       = "16.04-LTS"
+  version   = "Latest"
+}
 
 
 # ## For Windows

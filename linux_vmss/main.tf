@@ -1,11 +1,31 @@
+resource "azurerm_resource_group" "rg" {
+  name     = var.resource_group_name
+  location = var.location
+}
+
+resource "azurerm_virtual_network" "vnet" {
+  name                = var.vnet_name
+  resource_group_name = azurerm_resource_group.rg.name
+  location            = azurerm_resource_group.rg.location
+  address_space       = var.vnet_address_space
+}
+
+resource "azurerm_subnet" "subnet" {
+  name                 = var.subnet_name
+  resource_group_name  = azurerm_resource_group.rg.name
+  virtual_network_name = azurerm_virtual_network.vnet.name
+  address_prefixes     = var.subnet_address_prefixes
+}
+
 module "vmss" {
   source                      = "../"
-  resource_group_name         = var.resource_group_name
-  location                    = var.location
-  vnet_name                   = var.vnet_name
-  vnet_address_space          = var.vnet_address_space
-  subnet_name                 = var.subnet_name
-  subnet_address_prefixes     = var.subnet_address_prefixes
+  resource_group_name         = azurerm_resource_group.rg.name
+  location                    = azurerm_resource_group.rg.location
+  vnet_name                   = azurerm_virtual_network.vnet.name
+  vnet_address_space          = azurerm_virtual_network.vnet.address_space
+  subnet_name                 = azurerm_subnet.subnet.name
+  subnet_address_prefixes     = azurerm_subnet.subnet.address_prefixes
+  subnet_id                   = azurerm_subnet.subnet.id
   vmss_name                   = var.vmss_name
   vmss_sku                    = var.vmss_sku
   vmss_instances              = var.vmss_instances

@@ -1,29 +1,12 @@
-resource "azurerm_resource_group" "rg" {
-  name     = var.resource_group_name
-  location = var.location
-}
 
-resource "azurerm_virtual_network" "vnet" {
-  name                = var.vnet_name
-  resource_group_name = azurerm_resource_group.rg.name
-  location            = azurerm_resource_group.rg.location
-  address_space       = var.vnet_address_space
-}
-
-resource "azurerm_subnet" "subnet" {
-  name                 = var.subnet_name
-  resource_group_name  = azurerm_resource_group.rg.name
-  virtual_network_name = azurerm_virtual_network.vnet.name
-  address_prefixes     = var.subnet_address_prefixes
-}
 
 ###################################### Windows VMSS ###################################### 
 
 resource "azurerm_windows_virtual_machine_scale_set" "windows" {
   count               = var.os_flavor == "Windows" ? 1 : 0
   name                = var.vmss_name
-  resource_group_name = azurerm_resource_group.rg.name
-  location            = azurerm_resource_group.rg.location
+  resource_group_name = var.resource_group_name
+  location            = var.location
   sku                 = var.vmss_sku
   instances           = var.vmss_instances
   admin_password      = var.vmss_admin_password
@@ -226,7 +209,7 @@ resource "azurerm_windows_virtual_machine_scale_set" "windows" {
         content {
           name                                         = lookup(ip_configuration.value, "name", "internal")
           primary                                      = lookup(ip_configuration.value, "primary", true)
-          subnet_id                                    = azurerm_subnet.subnet.id
+          subnet_id                                    = var.subnet_id
           application_gateway_backend_address_pool_ids = lookup(ip_configuration.value, "application_gateway_backend_address_pool_ids", null)
           application_security_group_ids               = lookup(ip_configuration.value, "application_security_group_ids", null)
           load_balancer_backend_address_pool_ids       = lookup(ip_configuration.value, "load_balancer_backend_address_pool_ids", null)
@@ -262,8 +245,8 @@ resource "azurerm_windows_virtual_machine_scale_set" "windows" {
 resource "azurerm_linux_virtual_machine_scale_set" "linux" {
   count               = var.os_flavor == "Linux" ? 1 : 0
   name                = var.vmss_name
-  resource_group_name = azurerm_resource_group.rg.name
-  location            = azurerm_resource_group.rg.location
+  resource_group_name = var.resource_group_name
+  location            = var.location
   sku                 = var.vmss_sku
   instances           = var.vmss_instances
   admin_username      = var.vmss_admin_username
@@ -314,7 +297,7 @@ resource "azurerm_linux_virtual_machine_scale_set" "linux" {
         content {
           name                                         = lookup(ip_configuration.value, "name")
           primary                                      = lookup(ip_configuration.value, "primary")
-          subnet_id                                    = azurerm_subnet.subnet.id
+          subnet_id                                    = var.subnet_id
           application_gateway_backend_address_pool_ids = lookup(ip_configuration.value, "application_gateway_backend_address_pool_ids")
           application_security_group_ids               = lookup(ip_configuration.value, "application_security_group_ids")
           load_balancer_backend_address_pool_ids       = lookup(ip_configuration.value, "load_balancer_backend_address_pool_ids")

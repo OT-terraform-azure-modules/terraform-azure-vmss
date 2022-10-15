@@ -10,6 +10,11 @@ variable "location" {
   default     = "Australia East"
 }
 
+variable "subnet_id" {
+  description = "value"
+  type        = string
+}
+
 variable "vnet_name" {
   description = "value"
   type        = string
