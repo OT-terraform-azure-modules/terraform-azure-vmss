@@ -1,3 +1,10 @@
+variable "load_balancer_backend_address_pool_ids" {
+  description = "value"
+  type        = string
+  default = null
+}
+
+
 variable "resource_group_name" {
   description = "value"
   type        = string
