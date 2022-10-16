@@ -290,7 +290,7 @@ resource "azurerm_linux_virtual_machine_scale_set" "linux" {
       dns_servers                   = lookup(network_interface.value, "dns_servers")
       enable_accelerated_networking = lookup(network_interface.value, "enable_accelerated_networking")
       enable_ip_forwarding          = lookup(network_interface.value, "enable_ip_forwarding")
-      network_security_group_id     = var.network_security_group_id == [""] ? null : var.network_security_group_id   #lookup(network_interface.value, "network_security_group_id")
+      network_security_group_id     = var.network_security_group_id == "" ? null : var.network_security_group_id   #lookup(network_interface.value, "network_security_group_id")
 
       dynamic "ip_configuration" {
         for_each = length(keys(lookup(network_interface.value, "ip_configuration"))) == 0 ? [] : [lookup(network_interface.value, "ip_configuration")]
