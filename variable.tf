@@ -1,7 +1,7 @@
 variable "load_balancer_backend_address_pool_ids" {
   description = "value"
-  type        = string
-  default = ""
+  #type        = string
+  default = [""]
 }
 
 
