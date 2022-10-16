@@ -739,7 +739,7 @@ variable "vmss_network_interface_ip_configuration_application_security_group_ids
 variable "vmss_network_interface_ip_configuration_load_balancer_backend_address_pool_ids" {
   description = "value"
   type        = set(string)
-  #default     = null
+  default     = null
 }
 
 variable "vmss_network_interface_ip_configuration_load_balancer_inbound_nat_rules_ids" {
