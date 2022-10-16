@@ -1,3 +1,10 @@
+variable "network_security_group_id" {
+  default = [""]
+}
+
+
+
+
 variable "load_balancer_backend_address_pool_ids" {
   description = "value"
   #type        = string
