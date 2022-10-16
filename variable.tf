@@ -701,8 +701,8 @@ variable "vmss_network_interface_enable_ip_forwarding" {
 
 variable "vmss_network_interface_network_security_group_id" {
   description = "value"
-  type        = string
-  default     = null
+  type        = list(string)
+  
 }
 
 variable "vmss_network_interface_ip_configuration_name" {
