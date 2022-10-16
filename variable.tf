@@ -702,7 +702,7 @@ variable "vmss_network_interface_enable_ip_forwarding" {
 variable "vmss_network_interface_network_security_group_id" {
   description = "value"
   type        = list(string)
-  
+  default     = null
 }
 
 variable "vmss_network_interface_ip_configuration_name" {
