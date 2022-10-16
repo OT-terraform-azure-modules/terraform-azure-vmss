@@ -300,7 +300,7 @@ resource "azurerm_linux_virtual_machine_scale_set" "linux" {
           subnet_id                                    = var.subnet_id
           application_gateway_backend_address_pool_ids = lookup(ip_configuration.value, "application_gateway_backend_address_pool_ids")
           application_security_group_ids               = lookup(ip_configuration.value, "application_security_group_ids")
-          load_balancer_backend_address_pool_ids       = var.load_balancer_backend_address_pool_ids #lookup(ip_configuration.value, "load_balancer_backend_address_pool_ids")
+          load_balancer_backend_address_pool_ids       = [var.load_balancer_backend_address_pool_ids] #lookup(ip_configuration.value, "load_balancer_backend_address_pool_ids")
           load_balancer_inbound_nat_rules_ids          = lookup(ip_configuration.value, "load_balancer_inbound_nat_rules_ids")
           version                                      = lookup(ip_configuration.value, "version")
 
