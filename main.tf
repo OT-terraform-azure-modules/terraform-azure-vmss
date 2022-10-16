@@ -304,23 +304,23 @@ resource "azurerm_linux_virtual_machine_scale_set" "linux" {
           load_balancer_inbound_nat_rules_ids          = lookup(ip_configuration.value, "load_balancer_inbound_nat_rules_ids")
           version                                      = lookup(ip_configuration.value, "version")
 
-          dynamic "public_ip_address" {
-            for_each = length(keys(lookup(ip_configuration.value, "public_ip_address"))) == 0 ? [] : [lookup(ip_configuration.value, "public_ip_address")]
-            content {
-              domain_name_label       = lookup(public_ip_address.value, "domain_name_label")
-              idle_timeout_in_minutes = lookup(public_ip_address.value, "idle_timeout_in_minutes")
-              public_ip_prefix_id     = lookup(public_ip_address.value, "public_ip_prefix_id")
-              name                    = lookup(public_ip_address.value, "name")
+#           dynamic "public_ip_address" {
+#             for_each = length(keys(lookup(ip_configuration.value, "public_ip_address"))) == 0 ? [] : [lookup(ip_configuration.value, "public_ip_address")]
+#             content {
+#               domain_name_label       = lookup(public_ip_address.value, "domain_name_label")
+#               idle_timeout_in_minutes = lookup(public_ip_address.value, "idle_timeout_in_minutes")
+#               public_ip_prefix_id     = lookup(public_ip_address.value, "public_ip_prefix_id")
+#               name                    = lookup(public_ip_address.value, "name")
 
-              dynamic "ip_tag" {
-                for_each = length(keys(lookup(public_ip_address.value, "ip_tag"))) == 0 ? [] : [lookup(public_ip_address.value, "ip_tag")]
-                content {
-                  tag  = lookup(ip_tag.value, "tag")
-                  type = lookup(ip_tag.value, "type")
-                }
-              }
-            }
-          }
+#               dynamic "ip_tag" {
+#                 for_each = length(keys(lookup(public_ip_address.value, "ip_tag"))) == 0 ? [] : [lookup(public_ip_address.value, "ip_tag")]
+#                 content {
+#                   tag  = lookup(ip_tag.value, "tag")
+#                   type = lookup(ip_tag.value, "type")
+#                 }
+#               }
+#             }
+#           }
         }
       }
     }
