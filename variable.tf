@@ -1,6 +1,6 @@
 variable "network_security_group_id" {
-  default = [""]
-  type = list(string)
+  default = ""
+  type = string
 }
 
 
