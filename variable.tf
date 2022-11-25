@@ -3,7 +3,11 @@ variable "network_security_group_id" {
   type = string
 }
 
-
+variable application_gateway_backend_address_pool_ids {
+description = "value"
+  #type        = string
+  default = [""]
+}
 
 
 variable "load_balancer_backend_address_pool_ids" {
